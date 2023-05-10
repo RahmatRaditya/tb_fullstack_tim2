@@ -35,16 +35,16 @@
                             <td>{{ $sales->sales_email }}</td>
                             <td>{{ $sales->sales_phone }}</td>
                             <td>
-                            <a href="{{ route('sales.edit', $sales->sales_id) }}">
-                            <button type="button" class="btn btn-warning">Edit</button>
-                            </a>
+                                <a href="{{ route('sales.edit', $sales->sales_id) }}">
+                                    <button type="button" class="btn btn-warning">Edit</button>
+                                </a>
                             </td>
                             <td>
-                            <form action="{{ route('sales.destroy', $sales->sales_id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Hapus</button>
-                            </form>
+                                <form action="{{ route('sales.destroy', $sales->sales_id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Hapus</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

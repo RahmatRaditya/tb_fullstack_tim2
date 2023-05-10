@@ -8,15 +8,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Tambah Sales</title>
         <style>
-        .container,
-        .row {
-        height: 100%;
-        min-height: 100%;
-        }
-        html,
-        body {
-        height: 100%;
-        }
+            .container,
+            .row {
+            height: 100%;
+            min-height: 100%;
+            }
+            html,
+            body {
+            height: 100%;
+            }
         </style>
     </head>
 
