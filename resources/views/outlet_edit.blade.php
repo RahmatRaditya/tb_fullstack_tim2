@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>Edit Sales</title>
+        <title>Edit Outlet</title>
         <style>
             .container,
             .row {
@@ -25,26 +25,21 @@
             <div class="row justify-content-center align-items-center">
                 <div class="card" style="width: 24rem;">
                     <div class="card-header">
-                        <b>Edit Sales</b>
+                        <b>Edit Outlet</b>
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="{{ route('sales.update', $sales->sales_id) }}" id="myForm">
+                        <form method="post" action="{{ route('outlets.update', $outlet->outlet_id) }}" id="myForm">
                         @method('PUT')
                         @csrf
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" value="{{ $sales->sales_name }}" name="sales_name" class="form-control" id="sales_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                <label for="name">Nama</label>
+                                <input type="text" value="{{ $outlet->outlet_name }}" name="outlet_name" class="form-control" id="outlet_name" aria-describedby="nameHelp" placeholder="Enter name">
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" value="{{ $sales->sales_email }}" name="sales_email" class="form-control" id="sales_email" aria-describedby="emailHelp" placeholder="Enter email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Phone</label>
-                                <input type="number" value="{{ $sales->sales_phone }}" name="sales_phone" class="form-control" id="sales_phone" aria-describedby="phonelHelp" placeholder="Enter phone">
+                                <label for="address">Alamat</label>
+                                <input type="text" value="{{ $outlet->outlet_address }}" name="outlet_address" class="form-control" id="outlet_address" aria-describedby="addressHelp" placeholder="Enter address">
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Submit</button>

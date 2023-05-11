@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Outlet;
 use Illuminate\Http\Request;
 
 class OutletController extends Controller
@@ -13,7 +14,8 @@ class OutletController extends Controller
      */
     public function index()
     {
-        //
+        $outlets = Outlet::all();
+        return view('outlet_list', ['outlets' => $outlets]);
     }
 
     /**
@@ -23,7 +25,7 @@ class OutletController extends Controller
      */
     public function create()
     {
-        //
+        return view('outlet_form');
     }
 
     /**
@@ -34,7 +36,11 @@ class OutletController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Outlet::create([
+            'outlet_name' => e($request->input('outlet_name')),
+            'outlet_address' => e($request->input('outlet_address')),
+        ]);
+        return redirect()->route('outlets.index');
     }
 
     /**
@@ -43,42 +49,50 @@ class OutletController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $outlet_id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($outlet_id)
     {
-        //
+        $outlets = Outlet::find($outlet_id);
+        return view('outlet_edit', ['outlet' => $outlets]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $outlet_id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $outlet_id)
     {
-        //
+        $outlets = Outlet::find($outlet_id);
+        $outlets->outlet_name = e($request->input('outlet_name'));
+        $outlets->outlet_address = e($request->input('outlet_address'));
+        $outlets->save();
+
+        return redirect()->route('outlets.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $outlet_id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($outlet_id)
     {
-        //
+        $outlets = Outlet::find($outlet_id);
+        $outlets->delete();
+        return redirect()->route('outlets.index');
     }
 }
