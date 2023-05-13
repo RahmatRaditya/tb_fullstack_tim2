@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Barang;
 
 class BarangController extends Controller
 {
@@ -13,7 +14,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $barangs = Barang::all();
+        return view('barang_list', ['barangs' => $barangs]);
     }
 
     /**
@@ -23,7 +25,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barang_form');
     }
 
     /**
@@ -34,7 +36,11 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Barang::create([
+            'barang_name' => e($request->input('barang_name')),
+            'barang_qty' => e($request->input('barang_qty')),
+        ]);
+        return redirect()->route('barangs.index');
     }
 
     /**
@@ -51,34 +57,42 @@ class BarangController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $barang_id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($barang_id)
     {
-        //
+        $barangs = Barang::find($barang_id);
+        return view('barang_edit', ['barang' => $barangs]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $barang_id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $barang_id)
     {
-        //
+        $barangs = Barang::find($barang_id);
+        $barangs->barang_name = e($request->input('barang_name'));
+        $barangs->barang_qty = e($request->input('barang_qty'));
+        $barangs->save();
+
+        return redirect()->route('barangs.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $barang_id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($barang_id)
     {
-        //
+        $barangs = Barang::find($barang_id);
+        $barangs->delete();
+        return redirect()->route('barangs.index');
     }
 }
