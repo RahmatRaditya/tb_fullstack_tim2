@@ -133,13 +133,4 @@ class BarangController extends Controller
 
     }
 
-    public function deleteBarang($barang_id)
-    {
-
-        $barangs = Barang::where('barang_id', $barang_id)->first();
-        Barang::where('barang_id', $barang_id)->delete();
-
-        return Helper::toJson("", "Data barang sudah dihapus");
-
-    }
 }
