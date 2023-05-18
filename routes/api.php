@@ -26,7 +26,10 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
-    // Route::post('login', 'AuthController@login');
+    Route::get('getBarang', 'BarangController@getBarang');
+    Route::post('createBarang', 'BarangController@createBarang');
+    Route::post('updateBarang', 'BarangController@updateBarang');
+    Route::get('deleteBarang/{id}', 'BarangController@deleteBarang');
 });
 
 Route::post('login', 'AuthController@login');

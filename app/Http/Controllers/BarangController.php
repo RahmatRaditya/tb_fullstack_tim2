@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
+use App\Helpers\Helper;
 
 class BarangController extends Controller
 {
@@ -94,5 +95,51 @@ class BarangController extends Controller
         $barangs = Barang::find($barang_id);
         $barangs->delete();
         return redirect()->route('barangs.index');
+    }
+
+
+    //
+    //
+    //Function for RestAPI
+    //
+
+    public function getBarang()
+    {
+        $barangs = Barang::orderBy("barang_id", "desc")->get();
+        return Helper::toJson($barangs);
+    }
+
+    public function createBarang(Request $request)
+    {
+
+        $barangs = new Barang();
+        $barangs->barang_name = $request->barang_name;
+        $barangs->barang_qty = $request->barang_qty;
+        $barangs->save();
+
+        return Helper::toJson($barangs, "Data barang sudah ditambah");
+
+    }
+
+    public function updateBarang(Request $request)
+    {
+
+        $barangs = Barang::where("barang_id", $request->barang_id)->first();
+        $barangs->barang_name = $request->barang_name;
+        $barangs->barang_qty = $request->barang_qty;
+        $barangs->save();
+
+        return Helper::toJson($barangs, "Data barang sudah diubah");
+
+    }
+
+    public function deleteBarang($barang_id)
+    {
+
+        $barangs = Barang::where('barang_id', $barang_id)->first();
+        Barang::where('barang_id', $barang_id)->delete();
+
+        return Helper::toJson("", "Data barang sudah dihapus");
+
     }
 }
