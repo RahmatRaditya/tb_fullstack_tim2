@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Outlet;
 use Illuminate\Http\Request;
+use App\Helpers\Helper;
 
 class OutletController extends Controller
 {
@@ -94,5 +95,17 @@ class OutletController extends Controller
         $outlets = Outlet::find($outlet_id);
         $outlets->delete();
         return redirect()->route('outlets.index');
+    }
+
+
+    //
+    //
+    //Function for RestAPI
+    //
+
+    public function getOutlet()
+    {
+        $outlets = Outlet::orderBy("outlet_id", "desc")->get();
+        return Helper::toJson($outlets);
     }
 }

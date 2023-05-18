@@ -30,6 +30,7 @@ Route::group([
     Route::post('createBarang', 'BarangController@createBarang');
     Route::post('updateBarang', 'BarangController@updateBarang');
     Route::get('deleteBarang/{id}', 'BarangController@deleteBarang');
+    Route::get('getOutlet', 'OutletController@getOutlet');
 });
 
 Route::post('login', 'AuthController@login');
