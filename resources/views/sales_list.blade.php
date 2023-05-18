@@ -50,7 +50,7 @@
               </a>
             </li>
             <li>
-              <a class="text-white" href="<?php echo url('sales') ?>">
+              <a class="text-white" href="<?php echo url('users') ?>">
                 <i class="fas fa-users pr-2"></i>
                 Master Sales
               </a>
@@ -80,7 +80,7 @@
 
                     <div class="d-flex justify-content-between mt-5 mb-2">
                         <h3>List Sales</h3>
-                        <a href="{{ route('sales.create') }}"><button class="btn btn-primary alig">Tambah Sales</button></a>
+                        <a href="{{ route('users.create') }}"><button class="btn btn-primary alig">Tambah Sales</button></a>
                     </div>
 
                 <table class="table">
@@ -88,24 +88,22 @@
                         <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Hapus</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($sales as $sales)
+                    @foreach($users as $user)
                         <tr>
-                            <td>{{ $sales->sales_name }}</td>
-                            <td>{{ $sales->sales_email }}</td>
-                            <td>{{ $sales->sales_phone }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
                             <td>
-                                <a href="{{ route('sales.edit', $sales->sales_id) }}">
+                                <a href="{{ route('users.edit', $user->id) }}">
                                     <button type="button" class="btn btn-warning">Edit</button>
                                 </a>
                             </td>
                             <td>
-                                <form action="{{ route('sales.destroy', $sales->sales_id)}}" method="post">
+                                <form action="{{ route('users.destroy', $user->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Hapus</button>

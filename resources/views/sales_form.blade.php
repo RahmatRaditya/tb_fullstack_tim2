@@ -29,21 +29,21 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="{{ route('sales.store') }}" id="myForm">
+                        <form method="post" action="{{ route('users.store') }}" id="myForm">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="sales_name" class="form-control" id="sales_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" name="sales_email" class="form-control" id="sales_email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Phone</label>
-                                <input type="number" name="sales_phone" class="form-control" id="sales_phone" aria-describedby="phoneHelp" placeholder="Enter phone number">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" name="password" class="form-control" id="password" aria-describedby="phoneHelp" placeholder="Enter password">
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Submit</button>

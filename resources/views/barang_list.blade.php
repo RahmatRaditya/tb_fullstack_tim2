@@ -50,7 +50,7 @@
               </a>
             </li>
             <li>
-              <a class="text-white" href="<?php echo url('sales') ?>">
+              <a class="text-white" href="<?php echo url('users') ?>">
                 <i class="fas fa-users pr-2"></i>
                 Master Sales
               </a>

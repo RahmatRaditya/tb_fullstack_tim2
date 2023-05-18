@@ -29,22 +29,17 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="{{ route('sales.update', $sales->sales_id) }}" id="myForm">
+                        <form method="post" action="{{ route('users.update', $user->id) }}" id="myForm">
                         @method('PUT')
                         @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" value="{{ $sales->sales_name }}" name="sales_name" class="form-control" id="sales_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                <input type="text" value="{{ $user->name }}" name="name" class="form-control" id="sales_name" aria-describedby="nameHelp" placeholder="Enter name">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" value="{{ $sales->sales_email }}" name="sales_email" class="form-control" id="sales_email" aria-describedby="emailHelp" placeholder="Enter email">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Phone</label>
-                                <input type="number" value="{{ $sales->sales_phone }}" name="sales_phone" class="form-control" id="sales_phone" aria-describedby="phonelHelp" placeholder="Enter phone">
+                                <input type="email" value="{{ $user->email }}" name="email" class="form-control" id="sales_email" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Submit</button>

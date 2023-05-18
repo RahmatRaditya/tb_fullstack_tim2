@@ -13,7 +13,7 @@
 
 use App\Http\Controllers\HomeController;
 
-Route::resource('sales', 'SalesController');
+Route::resource('users', 'UserController');
 Route::resource('barangs', 'BarangController');
 Route::resource('outlets', 'OutletController');
 
