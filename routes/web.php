@@ -16,7 +16,7 @@ use App\Http\Controllers\HomeController;
 Route::resource('users', 'UserController');
 Route::resource('barangs', 'BarangController');
 Route::resource('outlets', 'OutletController');
-
+Route::resource('transaksi', 'TransaksiController');
 
 // Route::get('/', function () {
 //     return view('welcome');
