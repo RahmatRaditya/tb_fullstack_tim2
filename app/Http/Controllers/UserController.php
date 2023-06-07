@@ -18,8 +18,6 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('sales_list', ['users' => $users]);
-
-        // return $users;
     }
 
     /**
@@ -61,4 +59,5 @@ class UserController extends Controller
         $users->delete();
         return redirect()->route('users.index');
     }
+
 }

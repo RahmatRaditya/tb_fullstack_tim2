@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
+use App\User;
+use App\Barang;
+use App\Outlet;
 
 class TransaksiController extends Controller
 {
@@ -31,7 +34,12 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        return view('transaksi_form');
+        // return view('transaksi_form');
+        $users = User::all();
+        $barangs = Barang::all();
+        $outlets = Outlet::all();
+        return view('transaksi_form', compact('users', 'barangs', 'outlets'));
+
     }
 
     /**
@@ -49,7 +57,7 @@ class TransaksiController extends Controller
             'transaksi_display' => e($request->input('transaksi_display')),
             'transaksi_visit' => e($request->input('transaksi_visit')),
         ]);
-        return redirect()->route('outlets.index');
+        return redirect()->route('transaksi.index');
     }
 
     // /**
@@ -72,7 +80,11 @@ class TransaksiController extends Controller
     public function edit($transaksi_id)
     {
         $transaksi = Transaksi::find($transaksi_id);
-        return view('transaksi_edit', ['transaksi' => $transaksi]);
+        // return view('transaksi_edit', ['transaksi' => $transaksi]);
+        $users = User::all();
+        $barangs = Barang::all();
+        $outlets = Outlet::all();
+        return view('transaksi_edit', compact('transaksi', 'users', 'barangs', 'outlets'));
     }
 
     /**
@@ -90,10 +102,9 @@ class TransaksiController extends Controller
         $transaksi->outlet_id = e($request->input('outlet_id'));
         $transaksi->transaksi_display = e($request->input('transaksi_display'));
         $transaksi->transaksi_visit = e($request->input('transaksi_visit'));
-        $transaksi->outlet_address = e($request->input('outlet_address'));
         $transaksi->save();
 
-        return redirect()->route('outlets.index');
+        return redirect()->route('transaksi.index');
     }
 
     /**

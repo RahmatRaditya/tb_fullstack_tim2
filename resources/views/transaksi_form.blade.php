@@ -31,20 +31,50 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('transaksi.store') }}" id="myForm">
                             @csrf
+
                             <div class="form-group">
-                                <label for="name">Sales</label>
-                                <select  name="sales_name" class="form-control" id="sales_name" aria-describedby="salesHelp" placeholder="Pilih sales">
-                                    @foreach ($sales as $s)
-                                        <option value="{{ $s->sales_id }}">{{ $s->sales_name }}</option>
-                                    @endforeach
+                                <label for="sales">Sales</label>
+                                <select class="form-control" id="id" name="id">
+                                <option value="">-- Pilih Sales --</option>
+                                @foreach ($users as $u)
+                                    <option value="{{ $u->id }}">{{ $u->name }}</option>
+                                @endforeach
                                 </select>
-                                                
                             </div>
 
-                            
-                            
+                            <div class="form-group">
+                                <label for="barang">Barang</label>
+                                <select class="form-control" id="barang_id" name="barang_id">
+                                <option value="">-- Pilih Barang --</option>
+                                @foreach ($barangs as $b)
+                                    <option value="{{ $b->barang_id }}">{{ $b->barang_name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="outlet">Outlet</label>
+                                <select class="form-control" id="outlet_id" name="outlet_id">
+                                <option value="">-- Pilih Outlet --</option>
+                                @foreach ($outlets as $o)
+                                    <option value="{{ $o->outlet_id }}">{{ $o->outlet_name }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="display">Total Display</label>
+                                <input type="number" name="transaksi_display" class="form-control" id="transaksi_display" placeholder="Enter total display">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="visit">Visit Date</label>
+                                <input type="date" name="transaksi_visit" class="form-control" id="transaksi_visit" placeholder="Pilih tanggal">
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
+
                     </div>
                 </div>
             </div>
