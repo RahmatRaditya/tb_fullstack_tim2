@@ -44,7 +44,7 @@
       <div class="sidebar p-4 bg-primary" id="sidebar">
             <h4 class="mb-5 text-white">SalesVisit</h4>
             <li>
-              <a class="text-white" href="#">
+              <a class="text-white" href="<?php echo url('transaksi') ?>">
               <i class="fas fa-tags pr-2"></i>
                 Transaksi
               </a>
