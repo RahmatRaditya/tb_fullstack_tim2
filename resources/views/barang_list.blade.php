@@ -85,6 +85,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
+                        <th scope="col">Code</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Qty</th>
                         <th scope="col">Edit</th>
@@ -94,6 +95,7 @@
                     <tbody>
                     @foreach($barangs as $barang)
                         <tr>
+                            <td>{{ $barang->barang_code }}</td>
                             <td>{{ $barang->barang_name }}</td>
                             <td>{{ $barang->barang_qty }}</td>
                             <td>

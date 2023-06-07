@@ -32,6 +32,12 @@
                         <form method="post" action="{{ route('barangs.update', $barang->barang_id) }}" id="myForm">
                         @method('PUT')
                         @csrf
+
+                            <div class="form-group">
+                                <label for="name">Code Barang</label>
+                                <input type="text" value="{{ $barang->barang_code }}" name="barang_code" class="form-control" id="barang_code" aria-describedby="codeBarang" placeholder="Enter code">
+                            </div>
+
                             <div class="form-group">
                                 <label for="name">Nama Barang</label>
                                 <input type="text" value="{{ $barang->barang_name }}" name="barang_name" class="form-control" id="barang_name" aria-describedby="nameBarang" placeholder="Enter name">

@@ -38,6 +38,7 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         Barang::create([
+            'barang_code' => e($request->input('barang_code')),
             'barang_name' => e($request->input('barang_name')),
             'barang_qty' => e($request->input('barang_qty')),
         ]);
@@ -77,6 +78,7 @@ class BarangController extends Controller
     public function update(Request $request, $barang_id)
     {
         $barangs = Barang::find($barang_id);
+        $barangs->barang_code = e($request->input('barang_code'));
         $barangs->barang_name = e($request->input('barang_name'));
         $barangs->barang_qty = e($request->input('barang_qty'));
         $barangs->save();
@@ -113,6 +115,7 @@ class BarangController extends Controller
     {
 
         $barangs = new Barang();
+        $barangs->barang_code = $request->barang_code;
         $barangs->barang_name = $request->barang_name;
         $barangs->barang_qty = $request->barang_qty;
         $barangs->save();
@@ -125,6 +128,7 @@ class BarangController extends Controller
     {
 
         $barangs = Barang::where("barang_id", $request->barang_id)->first();
+        $barangs->barang_code = $request->barang_code;
         $barangs->barang_name = $request->barang_name;
         $barangs->barang_qty = $request->barang_qty;
         $barangs->save();

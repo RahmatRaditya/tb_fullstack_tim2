@@ -31,6 +31,12 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('barangs.store') }}" id="myForm">
                             @csrf
+
+                            <div class="form-group">
+                                <label for="name">Code Barang</label>
+                                <input type="text" name="barang_code" class="form-control" id="barang_code" aria-describedby="codeHelp" placeholder="Enter code">
+                            </div>
+
                             <div class="form-group">
                                 <label for="name">Nama Barang</label>
                                 <input type="text" name="barang_name" class="form-control" id="barang_name" aria-describedby="nameHelp" placeholder="Enter name">
@@ -38,7 +44,7 @@
 
                             <div class="form-group">
                                 <label for="qty">Qty</label>
-                                <input type="number" name="barang_qty" class="form-control" id="barang_qty" aria-describedby="addressQty" placeholder="Enter qty">
+                                <input type="number" name="barang_qty" class="form-control" id="barang_qty" aria-describedby="Qty" placeholder="Enter qty">
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Submit</button>
