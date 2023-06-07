@@ -86,6 +86,7 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
+                        <th scope="col">ID Transaksi</th>
                         <th scope="col">Sales</th>
                         <th scope="col">Barang</th>
                         <th scope="col">Outlet</th>
@@ -99,7 +100,8 @@
                     <tbody>
                     @foreach($transaksi as $t)
                         <tr>
-                            <td>{{ $t->sales_name }}</td>
+                            <td>{{ $t->transaksi_id }}</td>
+                            <td>{{ $t->name }}</td>
                             <td>{{ $t->barang_name }}</td>
                             <td>{{ $t->outlet_name }}</td>
                             <td>{{ $t->barang_qty }}</td>

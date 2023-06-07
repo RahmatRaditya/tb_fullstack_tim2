@@ -18,7 +18,7 @@ class Transaksi extends Model
     protected $table = "transaksi";
 
     protected $fillable = [
-        'sales_id',
+        'id',
         'barang_id',
         'outlet_id',
         'transaksi_display',
@@ -27,12 +27,4 @@ class Transaksi extends Model
 
     protected $primaryKey = 'transaksi_id';
 
-    public function tabelTransaksi()
-    {
-        return $this
-            ->join('sales', 'transaksi.sales_id', '=', 'sales.sales_id')
-            ->join('barangs', 'transaksi.barang_id', '=', 'barangs.barang_id')
-            ->join('outlets', 'transaksi.outlet_id', '=', 'outlets.outlet_id')
-            ->select('transaksi.transaksi_id', 'barangs.barang_name', 'sales.sales_name', 'outlets.outlet_name', 'barangs.barang_qty', 'transaksi.transaksi_display', 'transaksi.transaksi_visit');
-    }
 }
