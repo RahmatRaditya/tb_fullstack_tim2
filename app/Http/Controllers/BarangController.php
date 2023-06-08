@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Barang;
 use App\Helpers\Helper;
+use DB;
 
 class BarangController extends Controller
 {

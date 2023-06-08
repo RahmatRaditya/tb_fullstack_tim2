@@ -107,13 +107,13 @@
                                 <form action="{{ route('barangs.destroy', $barang->barang_id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Hapus</button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin menghapus data ini?')">Hapus</button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
-                </table>
+                  </table>
                 </div>
             </div>
         </div>
