@@ -8,6 +8,7 @@ use App\User;
 use App\Barang;
 use App\Outlet;
 
+
 class TransaksiController extends Controller
 {
     /**
@@ -17,10 +18,9 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-
-        $transaksi = Transaksi::join('users', 'transaksi.id', '=', 'users.id')
-            ->join('barangs', 'transaksi.barang_id', '=', 'barangs.barang_id')
-            ->join('outlets', 'transaksi.outlet_id', '=', 'outlets.outlet_id')
+        $transaksi = Transaksi::join('users', 'transaksi.id', 'users.id')
+            ->join('barangs', 'transaksi.barang_id', 'barangs.barang_id')
+            ->join('outlets', 'transaksi.outlet_id', 'outlets.outlet_id')
             ->select('transaksi.transaksi_id', 'users.name', 'barangs.barang_name', 'outlets.outlet_name', 'barangs.barang_qty', 'transaksi.transaksi_display', 'transaksi.transaksi_visit')
             ->orderBy('transaksi_id', 'asc')
             ->get();
