@@ -78,7 +78,8 @@
                                 <input type="date" name="transaksi_visit" value="{{ $transaksi->transaksi_visit }}" class="form-control" id="transaksi_visit" placeholder="Pilih tanggal">
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
 
                     </div>

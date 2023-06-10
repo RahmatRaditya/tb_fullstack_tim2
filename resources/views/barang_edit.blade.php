@@ -47,7 +47,8 @@
                                 <label for="qty">Qty</label>
                                 <input type="number" value="{{ $barang->barang_qty }}" name="barang_qty" class="form-control" id="barang_qty" aria-describedby="addressQty" placeholder="Enter qty">
                             </div>
-                            
+
+                            <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

@@ -19,114 +19,88 @@
           }
     
           .sidebar {
-            width: 250px;
             height: 100vh;
-            position: fixed;
-            margin-left: -300px;
-            transition: 0.4s;
-          }
-    
-          .active-main-content {
-            margin-left: 250px;
-          }
-    
-          .active-sidebar {
-            margin-left: 0;
-          }
-    
-          #main-content {
-            transition: 0.4s;
           }
         </style>
     </head>
 
     <body>
-        <div class="sidebar p-4 bg-primary" id="sidebar">
-            <h4 class="mb-5 text-white">SalesVisit</h4>
-            <li>
-              <a class="text-white" href="<?php echo url('transaksi') ?>">
-              <i class="fas fa-tags pr-2"></i>
-                Transaksi
-              </a>
-            </li>
-            <li>
-              <a class="text-white" href="<?php echo url('users') ?>">
-                <i class="fas fa-users pr-2"></i>
-                Master Sales
-              </a>
-            </li>
-            <li>
-              <a class="text-white" href="<?php echo url('barangs') ?>">
-                <i class="fas fa-shopping-bag pr-2"></i>
-                Master Barang
-              </a>
-            </li>
-            <li>
-              <a class="text-white" href="<?php echo url('outlets') ?>">
-                <i class="fas fa-store-alt pr-2"></i>
-                Master Outlet
-              </a>
-            </li>
-          </div>
-        </div>
+        <div class="row navbar navbar-light bg-light sticky-top ">
+            <nav class="navbar">
+                <a class="navbar-brand font-weight-bold pl-4" href="#">SALES VISIT</a>
+            </nav>
+        </div>  
 
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidebar p-4 bg-primary" id="sidebar">
+                    <li>
+                      <a class="text-white" href="<?php echo url('transaksi') ?>">
+                      <i class="fas fa-tags pr-2 "></i>
+                        Transaksi
+                      </a>
+                    </li>
+                    <li>
+                      <a class="text-white" href="<?php echo url('users') ?>">
+                        <i class="fas fa-users pr-2 "></i>
+                        Master Sales
+                      </a>
+                    </li>
+                    <li>
+                      <a class="text-white" href="<?php echo url('barangs') ?>">
+                        <i class="fas fa-shopping-bag pr-2 "></i>
+                        Master Barang
+                      </a>
+                    </li>
+                    <li>
+                      <a class="text-white" href="<?php echo url('outlets') ?>">
+                        <i class="fas fa-store-alt pr-2 "></i>
+                        Master Outlet
+                      </a>
+                    </li>
+                </div>
+            </div>
 
-        <div class="container" id="main-content">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-12 pt-4">
-                    <button class="btn btn-primary" id="button-toggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
+            <div class="col mr-4">
+                <div class="justify-content-center align-items-center">
 
-                    <div class="d-flex justify-content-between mt-5 mb-2">
-                        <h3>List Sales</h3>
-                        <a href="{{ route('users.create') }}"><button class="btn btn-primary alig">Tambah Sales</button></a>
-                    </div>
+                        <div class="d-flex justify-content-between mt-5 mb-2">
+                            <h3 class="font-weight-bold">List Sales</h3>
+                            <a href="{{ route('users.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp&nbspTambah Sales</button></a>
+                        </div>
 
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Hapus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($users as $user)
-                        <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>
-                                <a href="{{ route('users.edit', $user->id) }}">
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </a>
-                            </td>
-                            <td>
-                                <form action="{{ route('users.destroy', $user->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin menghapus data ini?')">Hapus</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Hapus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>
+                                    <a href="{{ route('users.edit', $user->id) }}">
+                                        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="{{ route('users.destroy', $user->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-
-        <script>
-            // event will be executed when the toggle-button is clicked
-            document.getElementById("button-toggle").addEventListener("click", () => {
-
-            // when the button-toggle is clicked, it will add/remove the active-sidebar class
-            document.getElementById("sidebar").classList.toggle("active-sidebar");
-
-            // when the button-toggle is clicked, it will add/remove the active-main-content class
-            document.getElementById("main-content").classList.toggle("active-main-content");
-            });
-        </script>
     </body>
 </html>

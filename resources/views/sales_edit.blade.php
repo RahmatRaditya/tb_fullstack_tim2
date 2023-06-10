@@ -42,7 +42,8 @@
                                 <input type="email" value="{{ $user->email }}" name="email" class="form-control" id="sales_email" aria-describedby="emailHelp" placeholder="Enter email">
                             </div>
                             
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>
                 </div>

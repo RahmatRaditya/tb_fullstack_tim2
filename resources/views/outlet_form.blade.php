@@ -40,8 +40,9 @@
                                 <label for="address">Alamat</label>
                                 <input type="text-area" name="outlet_address" class="form-control" id="outlet_address" aria-describedby="addressHelp" placeholder="Enter address">
                             </div>
-                            
-                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                            <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>
                 </div>

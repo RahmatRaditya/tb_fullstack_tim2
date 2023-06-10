@@ -45,8 +45,9 @@
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" name="password" class="form-control" id="password" aria-describedby="phoneHelp" placeholder="Enter password">
                             </div>
-                            
-                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                            <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>
                 </div>

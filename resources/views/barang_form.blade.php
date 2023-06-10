@@ -46,8 +46,9 @@
                                 <label for="qty">Qty</label>
                                 <input type="number" name="barang_qty" class="form-control" id="barang_qty" aria-describedby="Qty" placeholder="Enter qty">
                             </div>
-                            
-                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                            <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>
                 </div>

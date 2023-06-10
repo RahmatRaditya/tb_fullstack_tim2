@@ -33,6 +33,11 @@
                             @csrf
 
                             <div class="form-group">
+                                <label for="nomor">Nomor Transaksi</label>
+                                <input type="text" name="transaksi_nomor" class="form-control" id="transaksi_nomor" placeholder="Nomor Transaksi">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="sales">Sales</label>
                                 <select class="form-control" id="id" name="id">
                                 <option value="">-- Pilih Sales --</option>
@@ -72,7 +77,8 @@
                                 <input type="date" name="transaksi_visit" class="form-control" id="transaksi_visit" placeholder="Pilih tanggal">
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
 
                     </div>
