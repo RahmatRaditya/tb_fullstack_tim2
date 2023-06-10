@@ -21,7 +21,7 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::join('users', 'transaksi.id', 'users.id')
             ->join('barangs', 'transaksi.barang_id', 'barangs.barang_id')
             ->join('outlets', 'transaksi.outlet_id', 'outlets.outlet_id')
-            ->select('transaksi.transaksi_id', 'users.name', 'barangs.barang_name', 'outlets.outlet_name', 'barangs.barang_qty', 'transaksi.transaksi_display', 'transaksi.transaksi_visit')
+            ->select('transaksi.transaksi_id', 'transaksi.transaksi_nomor', 'users.name', 'barangs.barang_name', 'outlets.outlet_name', 'barangs.barang_qty', 'transaksi.transaksi_display', 'transaksi.transaksi_visit')
             ->orderBy('transaksi_id', 'asc')
             ->get();
         return view('transaksi_list', compact('transaksi'));
@@ -51,6 +51,7 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         Transaksi::create([
+            'transaksi_nomor' => e($request->input('transaksi_nomor')),
             'id' => e($request->input('id')),
             'barang_id' => e($request->input('barang_id')),
             'outlet_id' => e($request->input('outlet_id')),
@@ -80,7 +81,6 @@ class TransaksiController extends Controller
     public function edit($transaksi_id)
     {
         $transaksi = Transaksi::find($transaksi_id);
-        // return view('transaksi_edit', ['transaksi' => $transaksi]);
         $users = User::all();
         $barangs = Barang::all();
         $outlets = Outlet::all();
@@ -97,6 +97,7 @@ class TransaksiController extends Controller
     public function update(Request $request, $transaksi_id)
     {
         $transaksi = Transaksi::find($transaksi_id);
+        $transaksi->transaksi_nomor = e($request->input('transaksi_nomor'));
         $transaksi->id = e($request->input('id'));
         $transaksi->barang_id = e($request->input('barang_id'));
         $transaksi->outlet_id = e($request->input('outlet_id'));

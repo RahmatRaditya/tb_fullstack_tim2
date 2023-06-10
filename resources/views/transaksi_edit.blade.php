@@ -34,6 +34,11 @@
                             @csrf
 
                             <div class="form-group">
+                                <label for="display">Nomor Transaksi</label>
+                                <input type="text" name="transaksi_nomor" value="{{ $transaksi->transaksi_nomor }}" class="form-control" id="transaksi_display" placeholder="Enter nomor transaksi">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="sales">Sales</label>
                                 <select class="form-control" id="id" value="{{ $transaksi->id }}" name="id">
                                 <option value="">-- Pilih Sales --</option>
