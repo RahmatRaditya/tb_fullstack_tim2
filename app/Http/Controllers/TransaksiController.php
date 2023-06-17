@@ -7,6 +7,7 @@ use App\Transaksi;
 use App\User;
 use App\Barang;
 use App\Outlet;
+use Illuminate\Support\Facades\DB;
 
 
 class TransaksiController extends Controller
@@ -24,7 +25,11 @@ class TransaksiController extends Controller
             ->select('transaksi.transaksi_id', 'transaksi.transaksi_nomor', 'users.name', 'barangs.barang_name', 'outlets.outlet_name', 'barangs.barang_qty', 'transaksi.transaksi_display', 'transaksi.transaksi_visit')
             ->orderBy('transaksi_id', 'asc')
             ->get();
-        return view('transaksi_list', compact('transaksi'));
+        $transaksiTotal = DB::table('transaksi')->count();
+        $salesTotal = DB::table('sales')->count();
+        $barangTotal = DB::table('barangs')->count();
+        $outletTotal = DB::table('outlets')->count();
+        return view('transaksi_list', compact('transaksi', 'transaksiTotal', 'salesTotal', 'barangTotal', 'outletTotal'));
     }
 
     /**

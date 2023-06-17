@@ -62,6 +62,41 @@
             </div>
 
             <div class="col mr-4">
+                <div class="row mt-4 mb-3">
+                      <div class="col">
+                          <div class="card text-white bg-success">
+                                  <div class="card-body">
+                                      <h5 class="card-title"><i class="fas fa-tags pr-2 "></i>{{ $transaksiTotal }}</h5>  
+                                      <a class="text-white " href="<?php echo url('transaksi') ?>">Lihat Semua</a>
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card text-white bg-primary">
+                                  <div class="card-body">
+                                      <h5 class="card-title"><i class="fas fa-users pr-2 "></i>{{ $salesTotal }}</h5>  
+                                      <a class="text-white " href="<?php echo url('users') ?>">Lihat Semua</a>
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card text-white bg-secondary">
+                                  <div class="card-body">
+                                      <h5 class="card-title"><i class="fas fa-shopping-bag pr-2 "></i>{{ $barangTotal }}</h5>  
+                                      <a class="text-white " href="<?php echo url('barangs') ?>">Lihat Semua</a>
+                                  </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card text-white bg-info">
+                                  <div class="card-body">
+                                      <h5 class="card-title"><i class="fas fa-store-alt pr-2 "></i>{{ $outletTotal }}</h5>  
+                                      <a class="text-white " href="<?php echo url('outlets') ?>">Lihat Semua</a>
+                                  </div>
+                          </div>
+                      </div>
+                </div>
+
             <div class="justify-content-center align-items-center">
                     <div class="d-flex justify-content-between mt-5 mb-2">
                         <h3 class="font-weight-bold">Transaksi</h3>
