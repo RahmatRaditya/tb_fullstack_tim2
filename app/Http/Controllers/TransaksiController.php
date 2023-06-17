@@ -108,16 +108,4 @@ class TransaksiController extends Controller
         return redirect()->route('transaksi.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $transaksi_id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($transaksi_id)
-    {
-        $transaksi = Transaksi::find($transaksi_id);
-        $transaksi->delete();
-        return redirect()->route('transaksi.index');
-    }
 }

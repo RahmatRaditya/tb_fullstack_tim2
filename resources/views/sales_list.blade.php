@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <title>List Sales</title>
+        <title>Master Sales</title>
         <style>
           li {
             list-style: none;
@@ -65,7 +65,7 @@
                 <div class="justify-content-center align-items-center">
 
                         <div class="d-flex justify-content-between mt-5 mb-2">
-                            <h3 class="font-weight-bold">List Sales</h3>
+                            <h3 class="font-weight-bold">Master Sales</h3>
                             <a href="{{ route('users.create') }}"><button class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp&nbspTambah Sales</button></a>
                         </div>
 

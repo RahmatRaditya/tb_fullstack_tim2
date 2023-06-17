@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <title>Master Transaksi</title>
+        <title>Transaksi</title>
         <style>
           li {
             list-style: none;
@@ -64,7 +64,7 @@
             <div class="col mr-4">
             <div class="justify-content-center align-items-center">
                     <div class="d-flex justify-content-between mt-5 mb-2">
-                        <h3 class="font-weight-bold">Master Transaksi</h3>
+                        <h3 class="font-weight-bold">Transaksi</h3>
                         <a href="{{ route('transaksi.create') }}"><button class="btn btn-primary alig"><i class="fas fa-plus"></i>&nbsp&nbspBuat Transaksi</button></a>
                     </div>
 
@@ -79,7 +79,6 @@
                         <th scope="col">Display</th>
                         <th scope="col">Visit Date</th>
                         <th scope="col">Edit</th>
-                        <th scope="col">Hapus</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,13 +95,6 @@
                                 <a href="{{ route('transaksi.edit', $t->transaksi_id) }}">
                                     <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i></button>
                                 </a>
-                            </td>
-                            <td>
-                                <form action="{{ route('transaksi.destroy', $t->transaksi_id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit" onclick="return confirm('Yakin menghapus data ini?')"><i class="fas fa-trash-alt"></i></button>
-                                </form>
                             </td>
                         </tr>
                     @endforeach
