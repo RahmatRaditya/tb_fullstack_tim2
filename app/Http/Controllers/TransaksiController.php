@@ -26,10 +26,10 @@ class TransaksiController extends Controller
             ->orderBy('transaksi_id', 'asc')
             ->get();
         $transaksiTotal = DB::table('transaksi')->count();
-        $salesTotal = DB::table('sales')->count();
+        $userTotal = DB::table('users')->count();
         $barangTotal = DB::table('barangs')->count();
         $outletTotal = DB::table('outlets')->count();
-        return view('transaksi_list', compact('transaksi', 'transaksiTotal', 'salesTotal', 'barangTotal', 'outletTotal'));
+        return view('transaksi_list', compact('transaksi', 'transaksiTotal', 'userTotal', 'barangTotal', 'outletTotal'));
     }
 
     /**

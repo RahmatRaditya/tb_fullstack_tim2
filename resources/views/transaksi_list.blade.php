@@ -74,7 +74,7 @@
                       <div class="col">
                           <div class="card text-white bg-primary">
                                   <div class="card-body">
-                                      <h5 class="card-title"><i class="fas fa-users pr-2 "></i>{{ $salesTotal }}</h5>  
+                                      <h5 class="card-title"><i class="fas fa-users pr-2 "></i>{{ $userTotal }}</h5>  
                                       <a class="text-white " href="<?php echo url('users') ?>">Lihat Semua</a>
                                   </div>
                           </div>
