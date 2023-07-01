@@ -36,16 +36,25 @@
                             <div class="form-group">
                                 <label for="name">Code Barang</label>
                                 <input type="text" value="{{ $barang->barang_code }}" name="barang_code" class="form-control" id="barang_code" aria-describedby="codeBarang" placeholder="Enter code">
+                                    @error('barang_code')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="name">Nama Barang</label>
                                 <input type="text" value="{{ $barang->barang_name }}" name="barang_name" class="form-control" id="barang_name" aria-describedby="nameBarang" placeholder="Enter name">
+                                    @error('barang_name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="qty">Qty</label>
                                 <input type="number" value="{{ $barang->barang_qty }}" name="barang_qty" class="form-control" id="barang_qty" aria-describedby="addressQty" placeholder="Enter qty">
+                                    @error('barang_qty')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>

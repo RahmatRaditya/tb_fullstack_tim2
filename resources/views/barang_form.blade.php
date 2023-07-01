@@ -34,17 +34,26 @@
 
                             <div class="form-group">
                                 <label for="name">Code Barang</label>
-                                <input type="text" name="barang_code" class="form-control" id="barang_code" aria-describedby="codeHelp" placeholder="Enter code">
+                                <input type="text" name="barang_code" value="{{ old('barang_code') }}" class="form-control" id="barang_code" aria-describedby="codeHelp" placeholder="Enter code">
+                                    @error('barang_code')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="name">Nama Barang</label>
-                                <input type="text" name="barang_name" class="form-control" id="barang_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                <input type="text" name="barang_name" value="{{ old('barang_name') }}" class="form-control" id="barang_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                    @error('barang_name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="qty">Qty</label>
-                                <input type="number" name="barang_qty" class="form-control" id="barang_qty" aria-describedby="Qty" placeholder="Enter qty">
+                                <input type="number" name="barang_qty" value="{{ old('barang_qty') }}" class="form-control" id="barang_qty" aria-describedby="Qty" placeholder="Enter qty">
+                                    @error('barang_qty')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>

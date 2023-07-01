@@ -37,6 +37,11 @@ class OutletController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'outlet_name' => 'required',
+            'outlet_address' => 'required',
+        ]);
+
         Outlet::create([
             'outlet_name' => e($request->input('outlet_name')),
             'outlet_address' => e($request->input('outlet_address')),
@@ -76,6 +81,11 @@ class OutletController extends Controller
      */
     public function update(Request $request, $outlet_id)
     {
+        $validatedData = $request->validate([
+            'outlet_name' => 'required',
+            'outlet_address' => 'required',
+        ]);
+
         $outlets = Outlet::find($outlet_id);
         $outlets->outlet_name = e($request->input('outlet_name'));
         $outlets->outlet_address = e($request->input('outlet_address'));

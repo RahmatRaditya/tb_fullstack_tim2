@@ -33,17 +33,26 @@
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+                                <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+                                    @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" name="password" class="form-control" id="password" aria-describedby="phoneHelp" placeholder="Enter password">
+                                <input type="password" name="password" value="{{ old('password') }}" class="form-control" id="password" aria-describedby="phoneHelp" placeholder="Enter password">
+                                    @error('password')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>

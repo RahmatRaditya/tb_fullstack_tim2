@@ -33,12 +33,18 @@
                             @csrf
                             <div class="form-group">
                                 <label for="name">Nama</label>
-                                <input type="text" name="outlet_name" class="form-control" id="outlet_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                <input type="text" name="outlet_name" value="{{ old('outlet_name') }}" class="form-control" id="outlet_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                    @error('outlet_name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="address">Alamat</label>
-                                <input type="text-area" name="outlet_address" class="form-control" id="outlet_address" aria-describedby="addressHelp" placeholder="Enter address">
+                                <input type="text-area" name="outlet_name" value="{{ old('outlet_address') }}" class="form-control" id="outlet_address" aria-describedby="addressHelp" placeholder="Enter address">
+                                    @error('outlet_address')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>

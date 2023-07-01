@@ -39,7 +39,6 @@ class TransaksiController extends Controller
      */
     public function create()
     {
-        // return view('transaksi_form');
         $users = User::all();
         $barangs = Barang::all();
         $outlets = Outlet::all();
@@ -55,6 +54,15 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'transaksi_nomor' => 'required',
+            'id' => 'required',
+            'barang_id' => 'required',
+            'outlet_id' => 'required',
+            'transaksi_display' => 'required',
+            'transaksi_visit' => 'required',
+        ]);
+
         Transaksi::create([
             'transaksi_nomor' => e($request->input('transaksi_nomor')),
             'id' => e($request->input('id')),
@@ -101,6 +109,15 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $transaksi_id)
     {
+        $validatedData = $request->validate([
+            'transaksi_nomor' => 'required',
+            'id' => 'required',
+            'barang_id' => 'required',
+            'outlet_id' => 'required',
+            'transaksi_display' => 'required',
+            'transaksi_visit' => 'required',
+        ]);
+
         $transaksi = Transaksi::find($transaksi_id);
         $transaksi->transaksi_nomor = e($request->input('transaksi_nomor'));
         $transaksi->id = e($request->input('id'));

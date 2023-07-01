@@ -35,11 +35,17 @@
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" value="{{ $user->name }}" name="name" class="form-control" id="sales_name" aria-describedby="nameHelp" placeholder="Enter name">
+                                    @error('name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" value="{{ $user->email }}" name="email" class="form-control" id="sales_email" aria-describedby="emailHelp" placeholder="Enter email">
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
                             
                             <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>

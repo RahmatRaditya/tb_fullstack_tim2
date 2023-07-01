@@ -67,7 +67,7 @@
                           <div class="card text-white bg-success">
                                   <div class="card-body">
                                       <h5 class="card-title"><i class="fas fa-tags pr-2 "></i>{{ $transaksiTotal }}</h5>  
-                                      <a class="text-white " href="<?php echo url('transaksi') ?>">Lihat Semua</a>
+                                      <a class="text-white " href="<?php echo url('transaksi') ?>">Lihat Semua Transaksi</a>
                                   </div>
                           </div>
                       </div>
@@ -75,7 +75,7 @@
                           <div class="card text-white bg-primary">
                                   <div class="card-body">
                                       <h5 class="card-title"><i class="fas fa-users pr-2 "></i>{{ $userTotal }}</h5>  
-                                      <a class="text-white " href="<?php echo url('users') ?>">Lihat Semua</a>
+                                      <a class="text-white " href="<?php echo url('users') ?>">Lihat Semua Sales</a>
                                   </div>
                           </div>
                       </div>
@@ -83,7 +83,7 @@
                           <div class="card text-white bg-secondary">
                                   <div class="card-body">
                                       <h5 class="card-title"><i class="fas fa-shopping-bag pr-2 "></i>{{ $barangTotal }}</h5>  
-                                      <a class="text-white " href="<?php echo url('barangs') ?>">Lihat Semua</a>
+                                      <a class="text-white " href="<?php echo url('barangs') ?>">Lihat Semua Barang</a>
                                   </div>
                           </div>
                       </div>
@@ -91,7 +91,7 @@
                           <div class="card text-white bg-info">
                                   <div class="card-body">
                                       <h5 class="card-title"><i class="fas fa-store-alt pr-2 "></i>{{ $outletTotal }}</h5>  
-                                      <a class="text-white " href="<?php echo url('outlets') ?>">Lihat Semua</a>
+                                      <a class="text-white " href="<?php echo url('outlets') ?>">Lihat Semua Outlet</a>
                                   </div>
                           </div>
                       </div>

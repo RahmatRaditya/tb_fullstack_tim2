@@ -23,7 +23,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-center align-items-center">
-                <div class="card" style="width: 24rem;">
+                <div class="card mt-5 mb-5" style="width: 24rem;">
                     <div class="card-header">
                         <b>Buat Transaksi</b>
                     </div>
@@ -34,7 +34,10 @@
 
                             <div class="form-group">
                                 <label for="nomor">Nomor Transaksi</label>
-                                <input type="text" name="transaksi_nomor" class="form-control" id="transaksi_nomor" placeholder="Nomor Transaksi">
+                                <input type="text" name="transaksi_nomor" value="{{ old('transaksi_nomor') }}" class="form-control" id="transaksi_nomor" placeholder="Nomor Transaksi">
+                                    @error('transaksi_nomor')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
@@ -45,6 +48,9 @@
                                     <option value="{{ $u->id }}">{{ $u->name }}</option>
                                 @endforeach
                                 </select>
+                                    @error('id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
@@ -55,6 +61,9 @@
                                     <option value="{{ $b->barang_id }}">{{ $b->barang_name }}</option>
                                 @endforeach
                                 </select>
+                                    @error('barang_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
@@ -65,16 +74,25 @@
                                     <option value="{{ $o->outlet_id }}">{{ $o->outlet_name }}</option>
                                 @endforeach
                                 </select>
+                                    @error('outlet_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="display">Total Display</label>
-                                <input type="number" name="transaksi_display" class="form-control" id="transaksi_display" placeholder="Enter total display">
+                                <input type="number" name="transaksi_display" value="{{ old('transaksi_display') }}" class="form-control" id="transaksi_display" placeholder="Enter total display">
+                                    @error('transaksi_display')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="visit">Visit Date</label>
-                                <input type="date" name="transaksi_visit" class="form-control" id="transaksi_visit" placeholder="Pilih tanggal">
+                                <input type="date" name="transaksi_visit" value="{{ old('transaksi_visit') }}" class="form-control" id="transaksi_visit" placeholder="Pilih tanggal">
+                                    @error('transaksi_visit')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                             </div>
 
                             <button type="button" class="btn btn-outline" value="Go back!" onclick="history.back()">Batal</button>

@@ -37,6 +37,12 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'barang_code' => 'required',
+            'barang_name' => 'required',
+            'barang_qty' => 'required|numeric',
+        ]);
+
         Barang::create([
             'barang_code' => e($request->input('barang_code')),
             'barang_name' => e($request->input('barang_name')),
@@ -77,6 +83,12 @@ class BarangController extends Controller
      */
     public function update(Request $request, $barang_id)
     {
+        $validatedData = $request->validate([
+            'barang_code' => 'required',
+            'barang_name' => 'required',
+            'barang_qty' => 'required|numeric',
+        ]);
+
         $barangs = Barang::find($barang_id);
         $barangs->barang_code = e($request->input('barang_code'));
         $barangs->barang_name = e($request->input('barang_name'));
